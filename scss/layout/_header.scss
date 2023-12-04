@@ -190,8 +190,13 @@
     color: $primary-color;
     border-color: $primary-color;
 }
-.header-curve svg {
-    margin-top: -340px;
-    z-index: 999999;
-    width: 100%;
+
+.header-curve {
+	min-height:100px;
+	
+	svg {
+		margin-top: -340px;
+		z-index: 999999;
+		width: 100%;
+	}
 }

@@ -1,7 +1,3 @@
-// import main scss file
-import './src/scss/main.scss'
-import 'bootstrap/scss/bootstrap.scss'
-
 // testimonial Slider
 var swiper = new Swiper(".testimonialSlider", {
   navigation: {
@@ -115,8 +111,12 @@ $('.scroll-shift').click(function (e) {
 window.addEventListener('load', function () {
   let theme = localStorage.getItem('theme');
 
-  changeTheme(theme);
-  var e = document.getElementById("themeMode").value(theme);
+  var themeMode = document.getElementById("themeMode")
+  console.log(themeMode);
+  if (themeMode) themeMode.value = theme;
+  if (theme) {
+	changeTheme(theme);
+  }  
 });
 
 var e = document.getElementById("themeMode");
@@ -128,11 +128,13 @@ e.addEventListener('change', function () {
 
 function changeTheme(value) {
   localStorage.setItem('theme', value)
+  document.documentElement.dataset.bsTheme = value;
+  /*
   if (value == "dark") {
     document.getElementById('theme').classList.add('dark-theme')
   } else {
     document.getElementById('theme').classList.remove('dark-theme')
-  }
+  }*/
 }
 
 window.addEventListener('load', (event) => {
